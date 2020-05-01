@@ -1,18 +1,18 @@
 ### Build image
 ```
-docker build -t tzutalin/py2qt4 .
+make
 ```
 
 ### Pull the image from Docker hub
 
 ```
-docker pull tzutalin/py2qt4
+docker pull haim0n/py2qt4
 ```
 
 ### Usage
-Change directory to your project directory, than run in the interactive mode:
+Change directory to your project's dir, then run in the interactive mode:
 ```
-docker run -it -v=$(pwd):$(pwd) --workdir=$(pwd) --rm tzutalin/py2qt4
+docker run -it -v=$(pwd):$(pwd) --workdir=$(pwd) --rm haim0n/py2qt4
 ```
 
 Run PyQt app on the container
@@ -27,5 +27,5 @@ Run PyQt app on the container
     --volume="/etc/shadow:/etc/shadow:ro" \
     --volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
-    tzutalin/py2qt4
+    haim0n/py2qt4
 ```

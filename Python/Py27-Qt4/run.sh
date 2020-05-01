@@ -5,11 +5,12 @@ docker run -it \
     --user $(id -u) \
     -e DISPLAY=unix$DISPLAY \
     --workdir="/home/$USER" \
-    --volume="/home/$USER:/home/$USER" \
-    --volume="/etc/group:/etc/group:ro" \
-    --volume="/etc/passwd:/etc/passwd:ro" \
-    --volume="/etc/shadow:/etc/shadow:ro" \
-    --volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
-    --volume="/home/$USER/projects:/projects" \
+    -v="/home/$USER:/home/$USER" \
+    -v="/etc/group:/etc/group:ro" \
+    -v="/etc/passwd:/etc/passwd:ro" \
+    -v="/etc/shadow:/etc/shadow:ro" \
+    -v="/etc/sudoers.d:/etc/sudoers.d:ro" \
+    -v="/home/$USER/projects:/src" \
+    --workdir=/src \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
-    tzutalin/py2qt4 bash
+    haim0n/py2qt4 bash
